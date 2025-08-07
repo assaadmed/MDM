@@ -1,127 +1,169 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>خدمات أسعد الرقمية | Services d'Assaad</title>
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>خدمات أسعد – Services Assaad</title>
+<style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #1e3a8a, #3b82f6);
-      color: #fff;
-      transition: all 0.3s ease-in-out;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f9f9f9;
+        color: #333;
+        text-align: center;
     }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 30px 20px;
+    header {
+        padding: 20px;
+        background: #222;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
     }
     .lang-switch {
-      text-align: center;
-      margin-bottom: 20px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
     }
     .lang-switch button {
-      background: #fff;
-      color: #1e3a8a;
-      padding: 8px 16px;
-      margin: 0 5px;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
+        padding: 5px 10px;
+        border: none;
+        background: #444;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .lang-switch img {
+        width: 25px;
+        cursor: pointer;
     }
     h1 {
-      text-align: center;
-      margin-bottom: 10px;
+        margin: 20px 0;
     }
-    p.intro {
-      text-align: center;
-      font-size: 1.1rem;
-      margin-bottom: 30px;
+    .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        padding: 20px;
     }
-    ul {
-      list-style: none;
-      padding: 0;
-      line-height: 1.8;
+    .service {
+        background: white;
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-    li::before {
-      content: '✔️';
-      margin-left: 10px;
+    .service img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 10px;
     }
-    .btn-contact {
-      display: block;
-      margin: 30px auto;
-      text-align: center;
-      background: #facc15;
-      color: #1e3a8a;
-      padding: 12px 20px;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
+    .whatsapp-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #25D366;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        margin: 20px auto;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: background 0.3s;
     }
-    .section {
-      margin-bottom: 40px;
+    .whatsapp-btn:hover {
+        background: #1ebe5b;
     }
-  </style>
+    .whatsapp-btn img {
+        width: 20px;
+    }
+</style>
 </head>
 <body>
-  <div class="container">
+
+<header>
+    <h2 id="site-title">خدمات أسعد</h2>
     <div class="lang-switch">
-      <button onclick="switchLang('ar')">العربية</button>
-      <button onclick="switchLang('fr')">Français</button>
-    </div><div id="ar">
-  <h1>خدمات أسعد الرقمية</h1>
-  <p class="intro">نقدم لك حلولًا رقمية متكاملة بكل احترافية وخصوصية.</p>
+        <button onclick="setLanguage('ar')">العربية</button>
+        <button onclick="setLanguage('fr')">Français</button>
+        <img src="https://flagcdn.com/w20/sa.png" alt="AR" onclick="setLanguage('ar')">
+        <img src="https://flagcdn.com/w20/fr.png" alt="FR" onclick="setLanguage('fr')">
+    </div>
+</header>
 
-  <div class="section">
-    <h2>الخدمات:</h2>
-    <ul>
-      <li>فتح الهواتف عن بعد (MDM - FRP - IMEI)</li>
-      <li>شحن شدات PUBG والتطبيقات</li>
-      <li>إدارة قنوات يوتيوب وصفحات تواصل</li>
-      <li>بيع أرقام واتساب وتيليجرام وأنظمة أخرى</li>
-      <li>كتابة السير الذاتية والتوكيلات</li>
-      <li>تصميم شعارات احترافية</li>
-      <li>برمجة التطبيقات</li>
-      <li>بيع حواسيب مستعملة بحالة ممتازة</li>
-      <li>إعلانات ممولة على فيسبوك، تيكتوك، يوتيوب، وجوجل</li>
-    </ul>
-  </div>
+<h1 id="welcome">حلول رقمية عن بُعد باحترافية</h1>
 
-  <a class="btn-contact" href="https://wa.me/22395705206" target="_blank">📩 للتواصل وطلب الخدمة اضغط هنا</a>
+<div class="services" id="services-list">
+    <!-- سيتم ملء الخدمات هنا عبر JavaScript -->
 </div>
 
-<div id="fr" style="display:none">
-  <h1>Services numériques d'Assaad</h1>
-  <p class="intro">Nous vous offrons des solutions numériques complètes avec professionnalisme et confidentialité.</p>
+<a href="https://wa.me/22395705206" target="_blank" class="whatsapp-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    <span id="contact-btn-text">تواصل معنا عبر واتساب</span>
+</a>
 
-  <div class="section">
-    <h2>Services:</h2>
-    <ul>
-      <li>Déverrouillage à distance des téléphones (MDM - FRP - IMEI)</li>
-      <li>Recharge de PUBG et d'autres applications</li>
-      <li>Gestion de chaînes YouTube et réseaux sociaux</li>
-      <li>Vente de numéros WhatsApp, Telegram et autres</li>
-      <li>Rédaction de CV et procurations</li>
-      <li>Conception de logos professionnels</li>
-      <li>Développement d'applications</li>
-      <li>Vente d'ordinateurs d'occasion en excellent état</li>
-      <li>Publicités sponsorisées sur Facebook, TikTok, YouTube et Google</li>
-    </ul>
-  </div>
+<script>
+const servicesData = {
+    ar: [
+        {name: "إزالة MDM", img: "https://i.ibb.co/J9rcXCy/image.png"},
+        {name: "إزالة FRP", img: "https://i.ibb.co/hNcG4XQ/image.png"},
+        {name: "كتابة السير الذاتية والتوكيلات", img: "https://i.ibb.co/qM8Qkhp6/image.png"},
+        {name: "الإعلانات الممولة", img: "https://i.ibb.co/ycWh85GT/image.png"},
+        {name: "برمجة التطبيقات والمواقع", img: "https://i.ibb.co/BHhpj2VP/image.png"},
+        {name: "تصميم الشعارات", img: "https://i.ibb.co/JFCZH0Wf/image.png"},
+        {name: "بيع أرقام واتساب/تيليجرام", img: "https://i.ibb.co/chLkdJvW/image.png"},
+        {name: "شحن الرصيد والخدمات", img: "https://i.ibb.co/TBK2C8qf/image.png"},
+        {name: "بيع الحواسيب المستعملة", img: "https://i.ibb.co/TBK2C8qf/image.png"}
+    ],
+    fr: [
+        {name: "Suppression MDM", img: "https://i.ibb.co/J9rcXCy/image.png"},
+        {name: "Suppression FRP", img: "https://i.ibb.co/hNcG4XQ/image.png"},
+        {name: "Rédaction de CV et procurations", img: "https://i.ibb.co/qM8Qkhp6/image.png"},
+        {name: "Publicité sponsorisée", img: "https://i.ibb.co/ycWh85GT/image.png"},
+        {name: "Développement d'applications et sites", img: "https://i.ibb.co/BHhpj2VP/image.png"},
+        {name: "Création de logos", img: "https://i.ibb.co/JFCZH0Wf/image.png"},
+        {name: "Vente de numéros WhatsApp/Télégram", img: "https://i.ibb.co/chLkdJvW/image.png"},
+        {name: "Recharge et services", img: "https://i.ibb.co/TBK2C8qf/image.png"},
+        {name: "Vente d'ordinateurs d'occasion", img: "https://i.ibb.co/TBK2C8qf/image.png"}
+    ]
+};
 
-  <a class="btn-contact" href="https://wa.me/22395705206" target="_blank">📩 Cliquez ici pour demander un service</a>
-</div>
+const titles = {
+    ar: {site: "خدمات أسعد", welcome: "حلول رقمية عن بُعد باحترافية", contact: "تواصل معنا عبر واتساب"},
+    fr: {site: "Services Assaad", welcome: "Solutions numériques à distance professionnelles", contact: "Contactez-nous sur WhatsApp"}
+};
 
-  </div>  <script>
-    function switchLang(lang) {
-      document.getElementById('ar').style.display = lang === 'ar' ? 'block' : 'none';
-      document.getElementById('fr').style.display = lang === 'fr' ? 'block' : 'none';
-      document.documentElement.lang = lang;
-      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    }
-  </script></body>
+function setLanguage(lang) {
+    localStorage.setItem('lang', lang);
+    loadContent(lang);
+}
+
+function loadContent(lang) {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    document.getElementById('site-title').textContent = titles[lang].site;
+    document.getElementById('welcome').textContent = titles[lang].welcome;
+    document.getElementById('contact-btn-text').textContent = titles[lang].contact;
+    
+    const container = document.getElementById('services-list');
+    container.innerHTML = '';
+    servicesData[lang].forEach(service => {
+        const div = document.createElement('div');
+        div.className = 'service';
+        div.innerHTML = `<img src="${service.img}" alt="${service.name}"><h3>${service.name}</h3>`;
+        container.appendChild(div);
+    });
+}
+
+window.onload = () => {
+    const savedLang = localStorage.getItem('lang') || 'ar';
+    loadContent(savedLang);
+};
+</script>
+
+</body>
 </html>
