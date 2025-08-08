@@ -210,10 +210,21 @@ function loadContent(lang) {
         container.appendChild(div);
     });
 }
-
 window.onload = () => {
-    const savedLang = localStorage.getItem('lang') || 'fr';
-    loadContent(savedLang);
+    const savedLang = localStorage.getItem('lang');
+
+    if (savedLang) {
+        // إذا كان المستخدم اختار لغة سابقاً، نستعملها
+        loadContent(savedLang);
+    } else {
+        // إذا لم يختر، نحدد اللغة حسب جهازه
+        const userLang = navigator.language || navigator.userLanguage;
+        if (userLang.startsWith('ar')) {
+            loadContent('ar');
+        } else {
+            loadContent('fr');
+        }
+    }
 };
 </script>
 <a href="https://wa.me/22395705206" class="whatsapp-float" target="_blank">
