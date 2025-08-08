@@ -3,71 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>خدمة إزالة iCloud - MDM Mali</title>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-        background: #f7f7f7;
-        margin: 0;
-        padding: 0;
-    }
-    .container {
-        max-width: 500px;
-        background: white;
-        padding: 20px;
-        margin: 50px auto;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    h1 {
-        color: #333;
-    }
-    p {
-        color: #555;
-        font-size: 1.1em;
-    }
-    a {
-        display: inline-block;
-        margin-top: 15px;
-        background: #007bff;
-        color: white;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-    }
-    a:hover {
-        background: #0056b3;
-    }
-</style>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        let userLang = navigator.language || navigator.userLanguage;
-        let title = document.querySelector("h1");
-        let desc = document.querySelector("p");
-        let btn = document.querySelector("a");
+<title>خدمات أسعد – Services Assaad</title>
 
-        if (userLang.startsWith("ar")) {
-            document.documentElement.lang = "ar";
-            document.documentElement.dir = "rtl";
-            title.textContent = "خدمة إزالة iCloud لأجهزة iPhone و iPad";
-            desc.textContent = "نقدم خدمة احترافية وآمنة لإزالة قفل iCloud من أجهزة أبل.";
-            btn.textContent = "زر موقعنا";
-        } else {
-            document.documentElement.lang = "fr";
-            document.documentElement.dir = "ltr";
-            title.textContent = "Service de suppression iCloud pour iPhone et iPad";
-            desc.textContent = "Nous offrons un service professionnel et sécurisé pour supprimer le verrou iCloud des appareils Apple.";
-            btn.textContent = "Visitez notre site";
-        }
-    });
-</script>
+<!-- وصف الموقع -->
+<meta name="description" content="خدمات أسعد: حلول رقمية عن بُعد باحترافية في إزالة MDM، إزالة FRP، إزالة iCloud، برمجة التطبيقات، الإعلانات الممولة، تصميم الشعارات، بيع الحواسيب والخدمات الرقمية الأخرى. تواصل معنا عبر واتساب بسهولة.">
+<link rel="icon" href="https://i.ibb.co/pvq7QGZZ/favicon.png" type="image/png">
+
+<style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f9f9f9; color: #333; text-align: center; }
+    header { padding: 20px; background: #222; color: white; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    .lang-switch button { padding: 5px 10px; border: none; background: #444; color: white; border-radius: 5px; cursor: pointer; }
+    h1 { margin: 20px 0; }
+    .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 20px; }
+    .service { background: white; padding: 15px; border-radius: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); cursor: pointer; }
+    .service img { width: 100px; height: 100px; object-fit: cover; border-radius: 50%; margin-bottom: 10px; }
+    .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25D366; color: #FFF; border-radius: 50%; text-align: center; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 999; display: flex; align-items: center; justify-content: center; transition: transform 0.2s ease-in-out; }
+    .whatsapp-float img { width: 35px; height: 35px; }
+    .whatsapp-float:hover { transform: scale(1.1); }
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>خدمة إزالة iCloud لأجهزة iPhone و iPad</h1>
-        <p>نقدم خدمة احترافية وآمنة لإزالة قفل iCloud من أجهزة أبل.</p>
-        <a href="https://mdm-mali.vercel.app/" target="_blank">زر موقعنا</a>
+
+<header>
+    <h2 id="site-title">خدمات أسعد</h2>
+    <div class="lang-switch">
+        <button onclick="setLanguage('ar')">العربية</button>
+        <button onclick="setLanguage('fr')">Français</button>
     </div>
+</header>
+
+<h1 id="welcome">حلول رقمية عن بُعد باحترافية</h1>
+
+<div class="services" id="services-list"></div>
+
+<a href="https://wa.me/22395705206" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+<script>
+const servicesData = {
+    ar: [
+        {name: "إزالة MDM", img: "https://i.ibb.co/J9rcXCy/image.png"},
+        {name: "إزالة FRP", img: "https://i.ibb.co/hNcG4XQ/image.png"},
+        {name: "إزالة iCloud لأجهزة iPhone و iPad", img: "https://i.ibb.co/GQYgvY3p/image.png"},
+        {name: "كتابة السير الذاتية والتوكيلات", img: "https://i.ibb.co/qM8Qkhp6/image.png"},
+        {name: "الإعلانات الممولة", img: "https://i.ibb.co/ycWh85GT/image.png"},
+        {name: "برمجة التطبيقات والمواقع", img: "https://i.ibb.co/BHhpj2VP/image.png"},
+        {name: "تصميم الشعارات", img: "https://i.ibb.co/JFCZH0Wf/image.png"},
+        {name: "بيع أرقام واتساب/تيليجرام", img: "https://i.ibb.co/chLkdJvW/image.png"},
+        {name: "شحن الرصيد والخدمات", img: "https://i.ibb.co/TBK2C8qf/image.png"},
+        {name: "بيع الحواسيب المستعملة", img: "https://i.ibb.co/XZMnZsdt/image.jpg"}
+    ],
+    fr: [
+        {name: "Suppression MDM", img: "https://i.ibb.co/J9rcXCy/image.png"},
+        {name: "Suppression FRP", img: "https://i.ibb.co/hNcG4XQ/image.png"},
+        {name: "Suppression iCloud pour iPhone et iPad", img: "https://i.ibb.co/GQYgvY3p/image.png"},
+        {name: "Rédaction de CV et procurations", img: "https://i.ibb.co/qM8Qkhp6/image.png"},
+        {name: "Publicité sponsorisée", img: "https://i.ibb.co/ycWh85GT/image.png"},
+        {name: "Développement d'applications et sites", img: "https://i.ibb.co/BHhpj2VP/image.png"},
+        {name: "Création de logos", img: "https://i.ibb.co/JFCZH0Wf/image.png"},
+        {name: "Vente de numéros WhatsApp/Télégram", img: "https://i.ibb.co/chLkdJvW/image.png"},
+        {name: "Recharge et services", img: "https://i.ibb.co/TBK2C8qf/image.png"},
+        {name: "Vente d'ordinateurs d'occasion", img: "https://i.ibb.co/XZMnZsdt/image.jpg"}
+    ]
+};
+
+const titles = {
+    ar: {site: "خدمات أسعد", welcome: "حلول رقمية عن بُعد باحترافية"},
+    fr: {site: "Services Assaad", welcome: "Solutions numériques à distance professionnelles"}
+};
+
+const whatsappMessages = {
+    ar: "مرحبًا، أريد الاستفسار عن خدمة: ",
+    fr: "Bonjour, je voudrais demander des informations sur le service : "
+};
+
+function setLanguage(lang) {
+    localStorage.setItem('lang', lang);
+    loadContent(lang);
+}
+
+function loadContent(lang) {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    document.getElementById('site-title').textContent = titles[lang].site;
+    document.getElementById('welcome').textContent = titles[lang].welcome;
+
+    const container = document.getElementById('services-list');
+    container.innerHTML = '';
+    servicesData[lang].forEach(service => {
+        const div = document.createElement('div');
+        div.className = 'service';
+        div.innerHTML = `<img src="${service.img}" alt="${service.name}"><h3>${service.name}</h3>`;
+        
+        div.onclick = () => {
+            const message = encodeURIComponent(whatsappMessages[lang] + service.name);
+            window.open(`https://wa.me/22395705206?text=${message}`, '_blank');
+        };
+        
+        container.appendChild(div);
+    });
+}
+
+window.onload = () => {
+    const savedLang = localStorage.getItem('lang');
+    if (savedLang) {
+        loadContent(savedLang);
+    } else {
+        const userLang = navigator.language || navigator.userLanguage;
+        if (userLang.startsWith('ar')) {
+            loadContent('ar');
+        } else {
+            loadContent('fr');
+        }
+    }
+};
+</script>
+
 </body>
 </html>
